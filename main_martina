@@ -1,0 +1,7 @@
+
+import pandas as pd
+
+data = pd.read_csv(r"C:\Users\zzr5gc\OneDrive - University of Virginia\Comp BME\Module 0\Comp_BME_Module1\Metadata and Protein Data for Module 1.csv")
+
+for column in data.columns:
+    print(column)
