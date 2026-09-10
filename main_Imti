@@ -1,0 +1,15 @@
+"""
+Print each column header from the Alzheimer's dataset, one per line.
+"""
+
+import pandas as pd
+
+# Path to the data file
+
+
+# Load just the header row (fast, doesn't read the whole file into memory)
+df = pd.read_csv("/Users/imtiagea./Desktop/BME 2315/Mod 1/Comp_BME_Module1/Metadata and Protein Data for Module 1.csv", nrows=0)
+
+# Print each column name on its own line
+for column in df.columns:
+    print(column)
