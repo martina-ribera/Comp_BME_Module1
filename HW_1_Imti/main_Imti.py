@@ -6,7 +6,7 @@ import statistics
 # ---------------------------------------------------------------------------
 # 4) Create patient objects from the .csv file of demographic + Luminex data
 # ---------------------------------------------------------------------------
-Patient.instantiate_from_csv("/Users/imtiagea./Desktop/BME 2315/Mod 1/Comp_BME_Module1/Metadata and Protein Data for Module 1.csv")
+Patient.instantiate_from_csv("/Users/imtiagea./Desktop/BME 2315/Mod 1/Comp_BME_Module1/HW_1_Imti/Metadata and Protein Data for Module 1.csv")
 
 print(f"Total number of patients loaded: {len(Patient.all_patients)}")
 print()
