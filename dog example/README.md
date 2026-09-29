@@ -223,7 +223,7 @@ Note that "age" in this data set is really referring to the avearge lifespan of 
 In main.py, type the following code, and you will need to identify the correct filepath for your file and paste it between the quotes. The way to find the filepath is to right-click on the file name in the Explorer (menu on the left side of this window) and select "Copy Path".
 
     Dog.instantiate_from_csv("/Users/smp6p/Documents/TEACHING/Teaching - BME 2315/Module_1/Intro_Code_for_Module_1/dog data set.csv")
-
+    
     print(Dog.get_dog("Pug"))
 
 When you run this code, you should see it "got" the object with the breed of "Pug" from the .csv file, with these attributes: 
