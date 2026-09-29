@@ -3,10 +3,10 @@ import csv
 
 class Patient:
 
-    # class variable (static variable) -- shared list of every Patient object we create
+    # list of every patient object 
     all_patients = []
 
-    # 2) Constructor: lists the attributes we want every patient object to have
+    # Constructor
     def __init__(self,
                  donor_id: str,
                  sex: str = "n/a",
@@ -40,16 +40,16 @@ class Patient:
         self.ttau = ttau
         self.ptau = ptau
 
-        # every time we make a new patient, add it to the class-wide list
+        # it adds it to the patient list
         Patient.all_patients.append(self)
 
-    # 3) Representer: what gets shown when we print a patient object
+    # print a patient object
     def __repr__(self):
         return (f"{self.donor_id}: ({self.sex} | Age at death: {self.age_at_death} | "
                 f"{self.cognitive_status} | APOE {self.apoe_genotype} | Thal {self.thal_score} | "
                 f"ABeta42: {self.abeta42})")
 
-    # ---- getters (instance methods) ----
+    # getters
     def get_age_at_death(self):
         return self.age_at_death
 
@@ -59,21 +59,21 @@ class Patient:
     def get_abeta42(self):
         return self.abeta42
 
-    # helper to turn blank strings from the .csv into None instead of ""
+    # helper to turn blank strings from the .csv into None 
     @staticmethod
     def _to_float_or_none(value):
         if value is None or value == "":
             return None
         return float(value)
 
-    # helper to pull the number out of strings like "Thal 3" -> 3
+    # helper to pull the number out of strings 
     @staticmethod
     def _parse_thal(value):
         if value is None or value == "":
             return None
         return int(value.replace("Thal", "").strip())
 
-    # 4) Class method that reads the .csv file and builds a Patient object for each row
+    # Class method that builds a patient object for each row
     @classmethod
     def instantiate_from_csv(cls, filename: str):
 
@@ -102,14 +102,14 @@ class Patient:
                 ptau=cls._to_float_or_none(row['pTAU pg/ug']),
             )
 
-    # 5) Getter to find one specific patient by donor ID
+    # finding one specific patient by donor ID
     @classmethod
     def get_patient(cls, donor_id):
         for patient in Patient.all_patients:
             if donor_id == patient.donor_id:
                 return patient
 
-    # 6) Class method to filter a list of patients by at least two attributes at once
+    # list of patients by at least two attributes at once
     @classmethod
     def filter(cls, patient_list, sex: str = "any", cognitive_status: str = "any",
                apoe_genotype: str = "any", education: str = "any",
